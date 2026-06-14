@@ -11,7 +11,7 @@ def validate_op():
     import os
     import boto3
 
-    REPO = "https://github.com/Loksai-MLOps/mlops-core-project.git"
+    REPO = "https://github.com/Edu-MLOps-May17-26/mlops-core-project.git"
 
     os.system(f"git clone {REPO}")
 
@@ -42,7 +42,7 @@ def preprocess_op():
     import os
     import boto3
 
-    REPO = "https://github.com/Loksai-MLOps/mlops-core-project.git"
+    REPO = "https://github.com/Edu-MLOps-May17-26/mlops-core-project.git"
 
     os.system(f"git clone {REPO}")
 
@@ -73,7 +73,7 @@ def train_op():
     import os
     import boto3
 
-    REPO = "https://github.com/Loksai-MLOps/mlops-core-project.git"
+    REPO = "https://github.com/Edu-MLOps-May17-26/mlops-core-project.git"
 
     os.system(f"git clone {REPO}")
 
@@ -103,7 +103,7 @@ def train_op():
 
 
 @dsl.pipeline(
-    name="mlops-core-learning-pipeline"
+    name="mlopscore"
 )
 def pipeline():
 
