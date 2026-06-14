@@ -1,0 +1,38 @@
+name: Kubeflow Pipeline CI/CD
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-pipeline:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Install Dependencies
+        run: |
+          pip install --upgrade pip
+          pip install kfp==2.8.0
+
+      - name: Compile Kubeflow Pipeline
+        run: |
+          python pipeline.py
+
+      - name: Verify pipeline.yaml
+        run: |
+          ls -l pipeline.yaml
+
+      - name: Upload Pipeline Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: kubeflow-pipeline-yaml
+          path: pipeline.yaml
